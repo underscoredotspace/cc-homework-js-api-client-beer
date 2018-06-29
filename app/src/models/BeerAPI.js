@@ -16,18 +16,25 @@ class BeerAPI {
     })
   }
 
-  getRandom() {
-    request(this.url.random, (error, response) => {
+  get(url, callback) {
+    request(url, (error, response) => {
       if (error) {
         alert('Error!')
         console.error(error)
         return 
       }
 
+      callback(response)      
+    })
+  }
+
+  getRandom() {
+    this.get(this.url.random, response => {
       const randomBeer = response[0]
       pubSub.publish('BeerAPI:random-beer', randomBeer)
     })
   }
+    
 }
 
 module.exports = BeerAPI

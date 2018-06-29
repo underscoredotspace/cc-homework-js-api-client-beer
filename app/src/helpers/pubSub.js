@@ -1,8 +1,8 @@
-const debug = false //== false
+const debug = true
 
 const pubSub = {
   publish: function (channel, payload) {
-    if (debug) {console.log({channel, payload})}
+    if (debug) {console.log('<publish>', {channel, payload})}
     const event = new CustomEvent(channel, {
       detail: payload
     });
@@ -10,7 +10,7 @@ const pubSub = {
   },
 
   subscribe: function (channel, callback) {
-    if (debug) {console.log({channel})}
+    if (debug) {console.log('<subscribe>', {channel})}
     document.addEventListener(channel, callback);
   }
 };
