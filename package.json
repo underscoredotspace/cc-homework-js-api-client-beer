@@ -1,0 +1,17 @@
+{
+  "name": "weekend-homework-js-api",
+  "version": "1.0.0",
+  "description": "Get beer from Punk API",
+  "main": "app/src/app.js",
+  "scripts": {
+    "start": "webpack -w",
+    "open": "open app/public/index.html",
+    "dev": " npm run open && npm start"
+  },
+  "author": "Colin Tindle <ampersand@underscore.space>",
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "webpack": "^4.13.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
