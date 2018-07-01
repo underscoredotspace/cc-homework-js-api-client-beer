@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.beer-detail__item {
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background-color: darkslateblue;
+  border: 2px solid darkslateblue;
+}
+
+.beer-detail__item .beer-image {
+  display: inline-block;
+  width: auto;
+  height: 200px;
+  padding: 1rem 2rem;
+}
+
+@media (min-width: 340px){
+
+  .beer-detail__item {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: 3rem auto 2rem;
+  }
+
+  .beer-detail__item .beer-image {
+    margin: 0 auto;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  }
+
+  .beer-detail__item * {
+    background-color: #ffffff88;
+  }
+
+  .beer-detail__item .beer-name, 
+  .beer-detail__item .beer-description,
+  .beer-detail__item .beer-abv {
+    padding: 0 1rem;
+    grid-column: 2 / 3;
+    margin: 0;
+  }
+
+  .beer-detail__item .beer-name {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-top: 0.5rem;
+  }
+
+  .beer-detail__item .beer-description {
+    max-height: calc(200px - 5rem);
+    overflow-y: auto;
+  }
+
+  .beer-detail__item .beer-abv {
+    padding-top: 0.5rem;
+  }
+
+}
+
+@media (max-width: 339px) {
+  .beer-detail__item .beer-image {
+    float: left;
+  }
+
+  .beer-detail__item {
+    min-height: 290px;
+    clear: both;
+    color: white;
+  }
+}

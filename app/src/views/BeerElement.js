@@ -1,16 +1,17 @@
 const htmlElement = require('../helpers/htmlElement')
 
 function beerElement(beer) {
-  const beerListItem = document.createElement('div')
-  beerListItem.className = 'beer-list__item'
-
-  beerListItem.appendChild(htmlElement.textElement('h2', beer.name))
   const altText = `Image of ${beer.name} label`
-  beerListItem.appendChild(htmlElement.imageElement(beer.image_url, altText))
-  beerListItem.appendChild(htmlElement.textElement('blockquote', beer.tagline))
-  beerListItem.appendChild(htmlElement.textElement('p', `${beer.abv}%`))
+  const className = 'beer-detail__item'
 
-  return beerListItem
+  const elements = [
+    htmlElement.textElement('h2', beer.name, {className:'beer-name'}),
+    htmlElement.imageElement(beer.image_url, altText, {className:'beer-image'}),
+    htmlElement.textElement('p', beer.description, {className:'beer-description'}),
+    htmlElement.textElement('p', `${beer.abv}%`, {className:'beer-abv'})
+  ]
+
+  return htmlElement.wrapperElement('div', elements, {className})
 }
 
 module.exports = beerElement
